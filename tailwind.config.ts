@@ -9,9 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+       violet: "#9333ea",
+       violetclair: "#8559c5",
+
       },
+      fontFamily: {
+        poppins:['Poppins','sans-serif'],
+        anttic:['Antic','sans-serif'],
+        inter: ['Inter','sans-serif'],
+      }
     },
   },
   plugins: [],
