@@ -16,6 +16,10 @@ type DashboardLayoutProps = {
     utilityInfo?: string;
     toggleInfo: string;
     additInfo: string;
+    gestionbBug: string;
+    suptitle:string;
+    parraintitle: string;
+    part: string;
 };
 export default function DashboardLayout({
     children,
@@ -28,11 +32,14 @@ export default function DashboardLayout({
     utilityInfo,
     toggleInfo,
     additInfo,
-
+    gestionbBug,
+    suptitle,
+    parraintitle,
+    part,
 }: DashboardLayoutProps) {
     return (
         <div id="app" className="flex bg-white h-screen font-inter">
-            <div style={{ width: "265px" }}>
+            <div style={{ width: "270px" }}>
                 <SideBar></SideBar>
             </div>
             <main className="flex flex-col flex-1 p-0 font-inter">
@@ -44,13 +51,16 @@ export default function DashboardLayout({
                             {util}
                             {utilityInfo}
                             {toggleInfo}
-
+                             {gestionbBug}
+                             {parraintitle}
                         </h2>
                         <p className='text-gray-500'>
                             {texte}
                             {commit}
                             {utis}
                             {additInfo}
+                            {suptitle}
+                            {part}
                         </p>
                     </div>
 

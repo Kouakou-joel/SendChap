@@ -66,7 +66,7 @@ export default function Login() {
                 </div>
               </div>
               {error && <p className="text-red-500">{error}</p>}
-              <form onSubmit={handleSubmit} id="envoie" className="max-sm:w-full">
+              <form method="POST" action={''} onSubmit={handleSubmit} id="envoie" className="max-sm:w-full">
                 <div className="flex flex-col pt-3 text-gray-700">
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" name="email" className="border-gray-300 p-2 border rounded-md w-50 h-8 md:text-base outline-none" placeholder="Entrez votre Email" value={email}
