@@ -52,7 +52,7 @@ export default function Login() {
 
   return (
     <>
-      <main className="flex flex-row justify-center shadow-2xl max-sm:shadow-2xl max-md:shadow-2xl max-lg:shadow-2xl rounded-lg w-screen h-min font-inter">
+      <main className="flex flex-row justify-center shadow-2xl max-sm:shadow-2xl max-md:shadow-2xl max-lg:shadow-2xl rounded-lg w-screen h-screen max-xl:h-full font-inter">
 
         <div className="flex flex-col bg-white w-1/2 max-md:w-full h-min">
           <div className="flex justify-center items-center bg-transparent m-14 max-sm:m-2 max-md:m-2 max-lg:m-3 w-50 h-full">
@@ -94,7 +94,7 @@ export default function Login() {
             <p className="text-gray-500 text-sm">&copy; DevStudio</p>
           </footer>
         </div>
-        <div className="flex flex-col justify-center items-center max-md:hidden bg-[url('/assets/images/Section.svg')] w-1/2 max-lg:w-1/2">
+        <div className="flex flex-col justify-center items-center max-md:hidden bg-[url('/assets/images/Section.svg')] bg-cover bg-center w-1/2 max-lg:w-1/2 max-[1440x320]:h-screen">
         </div>
 
       </main>

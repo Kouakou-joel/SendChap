@@ -292,49 +292,6 @@ export default function Dashboard() {
             lineChart.setOption(option);
         }
 
-        //     const chartDom7 = document.getElementById('main7');
-        //     if (chartDom7){
-        //     const ridChart = echarts.init(chartDom7);       
-        //   const  option = {
-        //       tooltip: {
-        //         trigger: 'item'
-        //       },
-        //       legend: {
-        //         top: '5%',
-        //         left: 'center'
-        //       },
-        //       series: [
-        //         {
-        //           name: 'Access From',
-        //           type: 'pie',
-        //           radius: ['40%', '70%'],
-        //           avoidLabelOverlap: false,
-        //           label: {
-        //             show: false,
-        //             position: 'center'
-        //           },
-        //           emphasis: {
-        //             label: {
-        //               show: true,
-        //               fontSize: 40,
-        //               fontWeight: 'bold'
-        //             }
-        //           },
-        //           labelLine: {
-        //             show: false
-        //           },
-        //           data: [
-        //             { value: 1048, name: '' },
-        //             { value: 735, name: '' },
-        //             { value: 580, name: '' },
-
-        //           ]
-        //         }
-        //       ]
-        //     };
-
-        //      ridChart.setOption(option); 
-        //     }
 
     }, []);
     return (
@@ -364,13 +321,13 @@ export default function Dashboard() {
                     </div>
                     <div className="flex space-x-8 bg-clip-border rounded-xl">
                         <div className="flex border rounded-r-md">
-                            <IoCalendarOutline className="rounded-sm w-5 h-5" onClick={() => datePickerRef.current.setFocus()} />
+                            <IoCalendarOutline className="rounded-sm w-5 h-5" onClick={handleFocus} />
 
                             <DatePicker
                                 ref={datePickerRef}
                                 selectsRange
-                                startDate={selectedDates[0]}
-                                endDate={selectedDates[1]}
+                                startDate={selectedDates[0] || undefined}
+                                endDate={selectedDates[1] || undefined}
                                 onChange={(dates: any) => setSelectedDates(dates)}
                                 placeholderText="Choisir une plage de dates"
                                 dateFormat="dd/MM/yyyy"

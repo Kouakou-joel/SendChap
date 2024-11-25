@@ -23,6 +23,8 @@ export default function GestionBug() {
                             <IoCalendarOutline className="rounded-sm w-5 h-5" />
                             <DatePicker
                                 selectsRange
+                                startDate={selectedDates[0] || undefined}
+                                endDate={selectedDates[1] || undefined}
                                 onChange={(dates: any) => setSelectedDates(dates)}
                                 placeholderText="Choisir une plage de dates"
                                 dateFormat="dd/MM/yyyy"

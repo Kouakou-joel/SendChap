@@ -38,7 +38,7 @@ const Transaction = () => {
                         </svg>
                     </div>
                 </div>
-                <div className="py-3 text-zinc-400 ytext-sm">Aujourd'hui</div>
+                <div className="py-4 text-zinc-400 ytext-sm">Aujourd'hui</div>
 
             </header>
             <div className="">

@@ -20,6 +20,8 @@ type DashboardLayoutProps = {
     suptitle:string;
     parraintitle: string;
     part: string;
+    head: string;
+    trus: string;
 };
 export default function DashboardLayout({
     children,
@@ -36,6 +38,8 @@ export default function DashboardLayout({
     suptitle,
     parraintitle,
     part,
+    head,
+    trus,
 }: DashboardLayoutProps) {
     return (
         <div id="app" className="flex bg-white h-screen font-inter">
@@ -53,6 +57,7 @@ export default function DashboardLayout({
                             {toggleInfo}
                              {gestionbBug}
                              {parraintitle}
+                             {head}
                         </h2>
                         <p className='text-gray-500'>
                             {texte}
@@ -61,6 +66,7 @@ export default function DashboardLayout({
                             {additInfo}
                             {suptitle}
                             {part}
+                            {trus}
                         </p>
                     </div>
 
