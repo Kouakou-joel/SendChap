@@ -1,31 +1,129 @@
 "use client"
 import DashboardLayout from "../components/navbar";
 import Layout from "../layout";
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { IoCalendarOutline } from "react-icons/io5";
 import { RxEyeOpen } from "react-icons/rx";
 import { SlCloudDownload } from "react-icons/sl";
+import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
+import axios from 'axios';
 
-const statusColor = {
+// Définir l'interface pour une transaction
+interface Transaction {
+    utilisateur: string;
+    telephone: string;
+    date: string;
+    detail: string;
+    montant: number;
+    nombreTotal: number;
+    status: 'Effectuer' | 'En attente' | 'Échec';  // Union type pour status
+}
+
+// Type pour les couleurs de status
+const statusColor: Record<Transaction['status'], string> = {
     'Effectuer': 'bg-green-100 text-green-800',
     'En attente': 'bg-yellow-100 text-yellow-800',
     'Échec': 'bg-red-100 text-red-800',
 };
 
-
 export default function Transactions() {
-
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [search, setSearch] = useState("");
+    const[nombreTotal, setNombreTotal] = useState();
     const [sortOption, setSortOption] = useState("Default");
-    const [selectedDates, setSelectedDates] = useState([null, null]);
+    const [selectedDates, setSelectedDates] = useState<[Date | null, Date | null]>([null, null]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(10);
+    const [totalItems, setTotalItems] = useState(100);
+
+    useEffect(() => {
+        // Fetch transactions from the database
+        axios.get('/api/transactions')
+            .then(response => {
+                setTransactions(response.data);
+                setNombreTotal(response.data.length);
+                setTotalItems(response.data.length);
+            })
+            .catch(error => {
+                console.error("echec de transaction!", error);
+            });
+    }, []);
+
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
+
+    const getPageNumbers = () => {
+        const pages = [];
+        const maxVisiblePages = 5;
+
+        if (totalPages <= maxVisiblePages) {
+            // Afficher toutes les pages si le total est petit
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            // Logique pour les points de suspension
+            if (currentPage <= 3) {
+                for (let i = 1; i <= 4; i++) pages.push(i);
+                pages.push('...');
+                pages.push(totalPages);
+            } else if (currentPage >= totalPages - 2) {
+                pages.push(1);
+                pages.push('...');
+                for (let i = totalPages - 3; i <= totalPages; i++) pages.push(i);
+            } else {
+                pages.push(1);
+                
+                pages.push(currentPage - 1);
+                pages.push(currentPage);
+                pages.push('...');
+                pages.push(currentPage + 1);
+                pages.push(currentPage + 2);
+                pages.push(totalPages);
+            }
+        }
+        return pages;
+    };
+
+    // Gérer les changements de page
+    const handlePreviousPage = () => {
+        setCurrentPage(prev => Math.max(prev - 1, 1));
+    };
+
+    const handleNextPage = () => {
+        setCurrentPage(prev => Math.min(prev + 1, totalPages));
+    };
+
     const handleSearch = (e: any) => {
         setSearch(e.target.value);
     };
     const handleSortChange = (e: any) => {
         setSortOption(e.target.value);
     };
+
+    // Filtrer et trier les transactions
+    const filteredTransactions = transactions
+        .filter(transaction => transaction.utilisateur.toLowerCase().includes(search.toLowerCase()))
+        .sort((a, b) => {
+            if (sortOption === "asc") {
+                return a.montant - b.montant;
+            } else if (sortOption === "desc") {
+                return b.montant - a.montant;
+            } else {
+                return 0;
+            }
+        });
+
+    // Obtenir les transactions pour la page actuelle
+    const currentTransactions = filteredTransactions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
     return (
         <>
             <DashboardLayout
@@ -37,7 +135,9 @@ export default function Transactions() {
                         <header className="flex justify-between items-center bg-transparent mb-10">
                             <div className="flex space-x-10">
                                 <h2 className="text-xl">Transactions</h2>
-                                <div className="shadow-xl pl-1 border rounded-2xl w-40 text-sm outline-none"  ></div>
+                                <div className="items-center shadow-xl px-2 p-1 border rounded-2xl w-40 text-sm text-violet outline-none">
+                                    {nombreTotal} transactions
+                                </div>
                             </div>
                             <div className="flex">
                                 <button className="flex items-center p-1 border rounded-md btn outline-none">
@@ -76,15 +176,11 @@ export default function Transactions() {
                                 <input type="text" name="" className="bg-transparent pl-2 outline-none" placeholder="Recherche" value={search}
                                     onChange={handleSearch} />
                             </div>
-
-
                         </nav>
-                        
                     </div>
                 </div>
                 <div className="mt-14">
-
-                    <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border rounded-xl h-screen text-white overflow-hidden">
+                    <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                         <div className="overflow-x-auto">
                             <table className="bg-white border min-w-full">
                                 <thead>
@@ -101,65 +197,79 @@ export default function Transactions() {
                                     </tr>
                                 </thead>
                                 <tbody className='items-center'>
-                                    <tr className="items-center hover:bg-gray-50 border-b text-gray-600 text-sm">
-                                        <td className="border-gray-300 py-2 text-center">
-                                            <input id="row1" type="checkbox" className="cursor-pointer" />
-                                        </td>
-                                        <td className="flex py-2">
-                                            <div className="">
-                                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <circle cx="20" cy="20" r="20" fill="#EEEEEC" />
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.8958 26.1033C14.2582 26.4657 14.8458 26.4657 15.2082 26.1033L24.518 16.7935V23.8331C24.518 24.3457 24.9335 24.7612 25.446 24.7612C25.9585 24.7612 26.374 24.3457 26.374 23.8331V14.5531C26.374 14.0406 25.9585 13.6251 25.446 13.6251H16.166C15.6534 13.6251 15.2379 14.0406 15.2379 14.5531C15.2379 15.0656 15.6534 15.4811 16.166 15.4811H23.2056L13.8958 24.7909C13.5334 25.1533 13.5334 25.7409 13.8958 26.1033Z" fill="#1A1A1A" />
-                                                </svg>
-                                            </div>
-                                            <div className="">
-                                                <h3 className='flex items-center pl-2'>Jean Philipp</h3>
-                                                <p className="pl-2">+225 0756248586</p>
-                                            </div>
-                                        </td>
-                                        <td className="px-4 py-2">  </td>
-                                        <td className="px-4 py-2">0756248586</td>
-                                        <td className="px-4 py-2">
-                                            <p>800.000 F cfa</p>
-                                        </td>
-                                        <td className="px-4 py-2">
-                                            <span className="inline-flex items-center bg-green-100 px-2 py-1 rounded-md ring-green-400 ring-inset font-medium text- text-green-600">
-                                                Effectuer
-                                            </span>
-                                        </td>
-                                        <td className="px-4 py-2">
-                                            <RxEyeOpen className='w-6 h-6' />
-                                        </td>
-                                    </tr>
-                                    <tr className="hover:bg-gray-50 border text-gray-600 text-sm">
-                                        <td className="px-4 py-3 text-center">
-                                            <input id="row2" type="checkbox" className="cursor-pointer" />
-                                        </td>
-                                        <td className="px-4 py-3">Utilisateur 2</td>
-                                        <td className="px-4 py-3">Non</td>
-                                        <td className="px-4 py-3">0789456123</td>
-                                        <td className="px-4 py-3">
-                                            <p>800.000 F cfa</p>
-                                        </td>
-
-                                    </tr>
-
+                                    {currentTransactions.map((transaction, index) => (
+                                        <tr key={index} className="items-center hover:bg-gray-50 border-b text-gray-600 text-sm">
+                                            <td className="border-gray-300 py-2 text-center">
+                                                <input type="checkbox" className="cursor-pointer" />
+                                            </td>
+                                            <td className="flex py-2">
+                                                <div className="">
+                                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <circle cx="20" cy="20" r="20" fill="#EEEEEC" />
+                                                        <path fillRule="evenodd" clipRule="evenodd" d="M13.8958 26.1033C14.2582 26.4657 14.8458 26.4657 15.2082 26.1033L24.518 16.7935V23.8331C24.518 24.3457 24.9335 24.7612 25.446 24.7612C25.9585 24.7612 26.374 24.3457 26.374 23.8331V14.5531C26.374 14.0406 25.9585 13.6251 25.446 13.6251H16.166C15.6534 13.6251 15.2379 14.0406 15.2379 14.5531C15.2379 15.0656 15.6534 15.4811 16.166 15.4811H23.2056L13.8958 24.7909C13.5334 25.1533 13.5334 25.7409 13.8958 26.1033Z" fill="#1A1A1A" />
+                                                    </svg>
+                                                </div>
+                                                <div className="">
+                                                    <h3 className='flex items-center pl-2'>{transaction.utilisateur}</h3>
+                                                    <p className="pl-2">{transaction.telephone}</p>
+                                                </div>
+                                            </td>
+                                            <td className="px-4 py-2">{transaction.date}</td>
+                                            <td className="px-4 py-2">{transaction.detail}</td>
+                                            <td className="px-4 py-2">
+                                                <p>{transaction.montant} F cfa</p>
+                                            </td>
+                                            <td className="px-4 py-2">
+                                                <span className={`inline-flex items-center px-2 py-1 rounded-md ring-inset font-medium ${statusColor[transaction.status]}`}>
+                                                    {transaction.status}
+                                                </span>
+                                            </td>
+                                            <td className="px-4 py-2">
+                                                <RxEyeOpen className='w-6 h-6' />
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
+                            <div className="flex justify-between items-center px-4 py-6">
+                                <button
+                                    className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'border border-gray-300 text-gray-600'}`}
+                                    onClick={() => handlePageChange(currentPage - 1)}
+                                    disabled={currentPage === 1}
+                                >
+                                    <BsArrowLeft />
+                                    Précédent
+                                </button>
+                                <div className="flex gap-2">
+                                    {getPageNumbers().map((page, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => typeof page === 'number' ? handlePageChange(page) : null}
+                                            className={`px-2 py-1 rounded-md ${page === currentPage
+                                                    ? 'bg-gray-400 text-white'
+                                                    : page === '...'
+                                                        ? ' bg-transparent text-gray-400 cursor-default'
+                                                        : 'bg-gray-200 hover:bg-gray-300 text-gray-500'
+                                                }`}
+                                            disabled={page === '...'}
+                                        >
+                                            {page}
+                                        </button>
+                                    ))}
+                                </div>
+                                <button
+                                    className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'border border-gray-300 text-gray-600'}`}
+                                    onClick={() => handlePageChange(currentPage + 1)}
+                                    disabled={currentPage === totalPages}
+                                >
 
+                                    Suivant <BsArrowRight />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
             </DashboardLayout >
         </>
     );
 }
-
-
-
-
-
-

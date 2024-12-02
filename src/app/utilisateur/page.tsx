@@ -12,11 +12,47 @@ import { BiShow } from "react-icons/bi";
 import { RxEyeOpen } from "react-icons/rx";
 
 import { useRef } from 'react';
+import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowLeft } from 'react-icons/bs';
 
 export default function Utilisateur() {
     const [search, setSearch] = useState("");
     const [sortOption, setSortOption] = useState("default");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPage] = useState(10);
+    const [totalItems] = useState(100);
+    const totalPages = Math.ceil(totalItems / itemsPage);
 
+    const getPageNumbers = () => {
+        const pages = [];
+        const maxVisiblePages = 5;
+     
+    if (totalPages <= maxVisiblePages) {
+        for (let i = 1; i <= totalPages; i++) {
+            pages.push(i);
+        }
+    }else{
+        if(currentPage <= 3){
+            for(let i = 1; i <= 4; i++) pages.push(i);
+            pages.push('...');
+            pages.push(totalPages);
+        }
+        else if(currentPage >= totalPages - 2){
+            pages.push(1);
+            pages.push('...');
+            for(let i = totalPages - 3; i <= totalPages; i++) pages.push(i);
+        }else{
+            pages.push(1);
+            pages.push(currentPage - 1);
+            pages.push(currentPage);
+            pages.push('...');
+            pages.push(currentPage + 1);
+            pages.push(currentPage + 2);
+            pages.push(totalPages);
+        }
+    }
+    return pages;
+}
     const handleSearch = (e: any) => {
         setSearch(e.target.value);
     };
@@ -25,19 +61,44 @@ export default function Utilisateur() {
         setSortOption(e.target.value);
     };
     const chartRef = useRef(null);
-
+ 
     useEffect(() => {
-     
+        const chartDom = document.getElementById('main');
+        if (chartDom) {
+            const myChart = echarts.init(chartDom);
+            const option = {
+          xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              data: [120, 200, 150, 80, 70, 110, 130],
+              type: 'bar'
+            }
+                    ]
+            };
 
-    
+            myChart.setOption(option);
+        }
     }, []);
+
+    const handlePageChange = (page: number) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
     return (
         <>
             <DashboardLayout util={"Getion des utilisateur"} utis={"Suivez,gerez,Prevoyez les actions des uttilisateurs"}>
                 <div className="pt-8">
                     <div className="flex">
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
                                         <div className="text-black text-xl">Total des utilisateurs</div>
@@ -69,7 +130,7 @@ export default function Utilisateur() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
                                         <div className="text-black text-xl">utilisateurs Actifs</div>
@@ -104,7 +165,7 @@ export default function Utilisateur() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
 
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
@@ -161,9 +222,9 @@ export default function Utilisateur() {
                             />
                         </div>
                     </div>
-                    <div className="pt-8">
+                    <div className="pt-10">
                         <div className="w-full h-screen">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                                 <div className="overflow-x-auto">
                                     <table className="bg-white border min-w-full">
                                         <thead>
@@ -231,6 +292,41 @@ export default function Utilisateur() {
 
                                         </tbody>
                                     </table>
+                                    <div className="flex justify-between items-center px-4 py-6">
+                                        <button     
+                                            className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === 1 ? 'bg-gray-200 text-gray-600' : 'border border-gray-300 text-gray-600'}`}
+                                            onClick={() => handlePageChange(currentPage - 1)}
+                                            disabled={currentPage === 1}
+                                        >
+                                            <BsArrowLeft />
+                                            Précédent
+                                        </button>
+                                        <div className="flex gap-2">
+                                            {getPageNumbers().map((page, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => typeof page === 'number' ? handlePageChange(page) : null}
+                                                    className={`px-2 py-1 rounded-md ${page === currentPage
+                                                        ? 'bg-gray-500 text-white'
+                                                        : page === '...'
+                                                            ? 'text-gray-400 bg-transparent cursor-default'
+                                                            : 'bg-gray-200 hover:bg-gray-300 text-gray-600'
+                                                        }`}
+                                                    disabled={page === '...'}
+                                                >
+                                                    {page}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <button
+                                            className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'border border-gray-300 text-gray-600'}`}
+                                            onClick={() => handlePageChange(currentPage + 1)}
+                                            disabled={currentPage === totalPages}
+                                        >
+
+                                            Suivant <BsArrowRight />
+                                        </button>
+                                    </div>
 
                                 </div>
                             </div>
@@ -240,4 +336,5 @@ export default function Utilisateur() {
             </DashboardLayout >
         </>
     );
-}
+}     
+    

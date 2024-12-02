@@ -6,10 +6,22 @@ import { CiSearch } from "react-icons/ci";
 import Transaction from '../components/transaction';
 import { FiAlertOctagon } from "react-icons/fi";
 import { BiShow } from "react-icons/bi";
+import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+
+interface ParrainageData {
+    Parrain: string;
+    Nombrefilleul: number;
+    Gainsactuel: number;
+    odeID: string;
+}
+
 export default function Parrainage() {
+    const [parrainages, setParrainages] = useState<ParrainageData[]>([]);
     const [search, setSearch] = useState("");
     const [sortOption, setSortOption] = useState("default");
-
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    
     const handleSearch = (e: any) => {
         setSearch(e.target.value);
     };
@@ -18,6 +30,27 @@ export default function Parrainage() {
         setSortOption(e.target.value);
     };
 
+    const handlePageChange = (page: number) => {
+        if (page >= 1 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+
+    const getPageNumbers = () => {
+        const pages: (number | string)[] = [];
+        for (let i = 1; i <= totalPages; i++) {
+            if (
+                i === 1 ||
+                i === totalPages ||
+                (i >= currentPage - 1 && i <= currentPage + 1)
+            ) {
+                pages.push(i);
+            } else if (i === currentPage - 2 || i === currentPage + 2) {
+                pages.push('...');
+            }
+        }
+        return pages;
+    };
 
     return (
         <>
@@ -25,7 +58,7 @@ export default function Parrainage() {
                 <div className="pt-8">
                     <div className="flex">
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
                                         <div className="text-black text-xl">Total des parrains</div>
@@ -57,7 +90,7 @@ export default function Parrainage() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
                                         <div className="text-black text-xl">Total des filleuls</div>
@@ -92,7 +125,7 @@ export default function Parrainage() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
 
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
@@ -149,9 +182,9 @@ export default function Parrainage() {
                             />
                         </div>
                     </div>
-                    <div className="pt-8">
+                    <div className="pt-10">
                         <div className="w-full h-screen">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                                 <div className="overflow-x-auto">
                                     <table className="bg-white border min-w-full">
                                         <thead>
@@ -168,60 +201,73 @@ export default function Parrainage() {
                                             </tr>
                                         </thead>
                                         <tbody className='items-center'>
-                                            <tr className="items-center hover:bg-gray-50 border-b text-gray-600 text-sm">
-                                                <td className="border-gray-300 py-2 text-center">
-                                                    <input id="row1" type="checkbox" className="cursor-pointer" />
-                                                </td>
-                                                <td className="flex py-2">
-                                                    <div className="flex">
-                                                        <div className="flex justify-center items-center bg-gray-300 p-2 rounded-full w-12 h-12">
-
+                                            {parrainages.map((parrainage: ParrainageData, index: number) => (
+                                                <tr key={index} className="items-center hover:bg-gray-50 border-b text-gray-600 text-sm">
+                                                    <td className="border-gray-300 py-2 text-center">
+                                                        <input id={`row${index}`} type="checkbox" className="cursor-pointer" />
+                                                    </td>
+                                                    <td className="flex py-2">
+                                                        <div className="flex">
+                                                            <div className="flex justify-center items-center bg-gray-300 p-2 rounded-full w-12 h-12">
+                                                                {/* Ajouter une image ou une icône ici */}
+                                                            </div>
                                                         </div>
-
-                                                    </div>
-                                                    <div className="pl-2">
-
-                                                        <h3 className=''>Jean Philipp</h3>
-                                                        <p>088t8684</p>
-                                                    </div>
-                                                </td>
-                                                <td className="px-4 py-2">  </td>
-                                                <td className="px-4 py-2">0756248586</td>
-                                                <td className="px-4 py-2">
-                                                    <p>800.000 F cfa</p>
-                                                </td>
-                                                <td className='px-2 py-2'>v</td>
-                                                <td className='px-2 py-2'>
-                                                    <div className='flex items-center space-x-4'>
-                                                        <FiAlertOctagon className='w-4 h-4' />
-                                                        <BiShow className='w-6 h-6' />
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr className="hover:bg-gray-50 border text-gray-600 text-sm">
-                                                <td className="px-4 py-2 text-center">
-                                                    <input id="row2" type="checkbox" className="cursor-pointer" />
-                                                </td>
-                                                <td className="px-4 py-2">Utilisateur 2</td>
-                                                <td className="px-4 py-2"></td>
-                                                <td className="px-4 py-2">0789456123</td>
-                                                <td className="px-4 py-2">
-                                                    <p>800.000 F cfa</p>
-                                                </td>
-                                                <td className='px-2 py-2'>coe</td>
-                                                <td className='px-2 py-2'>
-                                                    <div className='flex items-center space-x-4'>
-                                                        <FiAlertOctagon className='w-4 h-4' />
-                                                        <BiShow className='w-6 h-6' />
-
-                                                    </div>
-                                                </td>
-                                            </tr>
-
+                                                        <div className="pl-2">
+                                                            <h3 className=''>{parrainage.Parrain}</h3>
+                                                            <p>{parrainage.odeID}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-4 py-2">  </td>
+                                                    <td className="px-4 py-2">{parrainage.Nombrefilleul}</td>
+                                                    <td className="px-4 py-2">
+                                                        <p>{parrainage.Gainsactuel} F cfa</p>
+                                                    </td>
+                                                    <td className='px-2 py-2'>{parrainage.odeID}</td>
+                                                    <td className='px-2 py-2'>
+                                                        <div className='flex items-center space-x-4'>
+                                                            <FiAlertOctagon className='w-4 h-4' />
+                                                            <BiShow className='w-6 h-6' />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ))}
                                         </tbody>
                                     </table>
-
+                                </div>
+                                <div className="flex justify-between items-center px-4 py-6">
+                                    <button
+                                        className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'border border-gray-300 text-gray-600'}`}
+                                        onClick={() => handlePageChange(currentPage - 1)}
+                                        disabled={currentPage === 1}
+                                    >
+                                        <BsArrowLeft />
+                                        Précédent
+                                    </button>
+                                    <div className="flex gap-2">
+                                        {getPageNumbers().map((page: number | string, index: number) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => typeof page === 'number' ? handlePageChange(page) : null}
+                                                className={`px-2 py-1 rounded-md ${
+                                                    page === currentPage
+                                                        ? 'bg-gray-500 text-white'
+                                                        : page === '...'
+                                                            ? 'bg-transparent cursor-default'
+                                                            : 'bg-gray-200 hover:bg-gray-300 text-gray-600'
+                                                }`}
+                                                disabled={page === '...'}
+                                            >
+                                                {page}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <button
+                                        className={`flex items-center gap-2 px-3 py-1 rounded-md ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'border border-gray-300 text-gray-600'}`}
+                                        onClick={() => handlePageChange(currentPage + 1)}
+                                        disabled={currentPage === totalPages}
+                                    >
+                                        Suivant <BsArrowRight />
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -266,6 +266,10 @@ export default function Dashboard() {
                         ],
                         itemStyle: {
                             color: '#4CAF50',
+                            borderRadius: [8, 8, 0, 0], // Arrondi en haut à gauche et droite
+                            itemStyle: {
+                                    borderRadius: [8, 8, 0, 0] // Applique l'arrondi à chaque barre
+                                }
                         },
                     },
                     {
@@ -284,6 +288,11 @@ export default function Dashboard() {
                         ],
                         itemStyle: {
                             color: '#F44336',
+                            borderRadius: [8, 8, 0, 0], // Arrondi en haut à gauche et droite
+                            itemStyle: {
+                                    borderRadius: [8, 8, 0, 0] // Applique l'arrondi à chaque barre
+                                }
+                         
                         },
                     },
                 ],
@@ -353,7 +362,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main" className="w-40 h-40"></div>;
@@ -395,7 +404,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main1" className="w-40 h-40"></div>;
@@ -438,7 +447,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main2" className="w-40 h-40"></div>;
@@ -479,7 +488,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main3" className="w-40 h-40"></div>;
@@ -522,7 +531,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre d'envoie en 24 heures/ Envoie d argent</h3>
                                     <div className="ml-auto">
@@ -553,7 +562,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre d'achat en 24 heures / Carte cadeau</h3>
                                     <div className="ml-auto">
@@ -585,7 +594,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de paiement en 24 heures / Paiement marchant</h3>
                                     <div className="ml-auto">
@@ -615,7 +624,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de depot en 24 heures / Depot bancaire</h3>
                                     <div className="ml-auto">
@@ -647,7 +656,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-2/3">
 
-                            <div className="relative bg-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative bg-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                                 <header className="items-center px-6 w-full h-10">
                                     <div className="flex pt-4">
                                         <div className="text-black text-xl">Status des Tansactions</div>
@@ -676,7 +685,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/3">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                                 <Transaction />
                             </div>
                         </div>
@@ -686,4 +695,6 @@ export default function Dashboard() {
             </DashboardLayout >
         </>
     );
-} 2
+} 
+                
+               
