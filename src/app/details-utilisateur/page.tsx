@@ -40,7 +40,7 @@ export default function DetailsUtilisateur() {
     };
 
     return (
-        <div className="flex justify-center items-center bg-gray-50 p-24 w-full h-full font-inter">
+        <div className="flex justify-center items-center bg-gray-50 p-24 w-full h-full font-MerriweatherSans">
             <div className="space-y-6 bg-white shadow-sm p-6 rounded-lg w-full max-w-6xl">
                 <header className="flex justify-between items-center mb-6 border-b">
                     <div className="pb-4">

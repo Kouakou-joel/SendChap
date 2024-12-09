@@ -55,7 +55,7 @@ export default function Administrateur() {
 
                 </nav>
                 <div className="mt-10">
-                    <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
+                    <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
                         <div className="overflow-x-auto">
                             <table className="bg-white border min-w-full">
                                 <thead>

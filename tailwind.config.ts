@@ -17,6 +17,8 @@ const config: Config = {
         poppins:['Poppins','sans-serif'],
         anttic:['Antic','sans-serif'],
         inter: ['Inter','sans-serif'],
+        MerriweatherSans: ['MerriweatherSans','sans-serif'],
+        WorkSans: ['WorkSans','sans-serif']
       }
     },
   },

@@ -266,9 +266,9 @@ export default function Dashboard() {
                         ],
                         itemStyle: {
                             color: '#4CAF50',
-                            borderRadius: [8, 8, 0, 0], // Arrondi en haut à gauche et droite
+                            borderRadius: [8, 8, 0, 0],
                             itemStyle: {
-                                    borderRadius: [8, 8, 0, 0] // Applique l'arrondi à chaque barre
+                                    borderRadius: [8, 8, 0, 0] 
                                 }
                         },
                     },
@@ -288,9 +288,9 @@ export default function Dashboard() {
                         ],
                         itemStyle: {
                             color: '#F44336',
-                            borderRadius: [8, 8, 0, 0], // Arrondi en haut à gauche et droite
+                            borderRadius: [8, 8, 0, 0], 
                             itemStyle: {
-                                    borderRadius: [8, 8, 0, 0] // Applique l'arrondi à chaque barre
+                                    borderRadius: [8, 8, 0, 0] 
                                 }
                          
                         },
@@ -307,7 +307,7 @@ export default function Dashboard() {
         <>
             <DashboardLayout title="Tableau de bord" texte="Bienvenue Philippe !" >
 
-                <header className="flex justify-between items-center px-4 font-inter">
+                <header className="flex justify-between items-center px-4 font-MerriweatherSans">
                     <div className="flex space-x-3 from-white to-white shadow-blue-gray-500/40 shadow-md p-1 bg-clip-border rounded-xl">
                         {["24 heures", "7 jours", "30 jours", "12 mois"].map((range) => (
                             <button
@@ -444,7 +444,7 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex mt-8">
+                    <div className="flex mt-8 font-MerriweatherSans">
                         <div className="w-1/2">
 
                             <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
@@ -488,7 +488,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main3" className="w-40 h-40"></div>;

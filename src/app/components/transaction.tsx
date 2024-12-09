@@ -20,7 +20,7 @@ const Transaction = () => {
     //     // Fonction pour récupérer les transactions depuis la base de données
     //     const fetchTransactions = async () => {
     //         try {
-    //             const response = await axios.get('/api/transactions'); 
+    //             const response = await axios.get('/api/c'); 
     //             setTransactions(response.data);
     //         } catch (error) {
     //             console.error("Erreur lors de la récupération des transactions:", error);
@@ -29,6 +29,20 @@ const Transaction = () => {
 
     //     fetchTransactions();
     // }, []);
+
+    // export async function getStaticProps({ params }) {
+    //     const data = await fetch('https://jsonplaceholder.typicode.com/posts')
+    //     const transactions = await data.json()
+
+    //     return {
+    //         props: {
+    //             transactions
+    //         },
+    //     }
+    // }
+    // (params: type) {
+
+    // }
 
     return (
         <div className="items-center px-6 w-full h-10">
@@ -52,7 +66,9 @@ const Transaction = () => {
                         <div className="flex">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="20" cy="20" r="20" fill="#EEEEEC" />
-                                <path fillRule="evenodd" clipRule="evenodd" d="M13.8958 26.1033C14.2582 26.4657 14.8458 26.4657 15.2082 26.1033L24.518 16.7935V23.8331C24.518 24.3457 24.9335 24.7612 25.446 24.7612C25.9585 24.7612 26.374 24.3457 26.374 23.8331V14.5531C26.374 14.0406 25.9585 13.6251 25.446 13.6251H16.166C15.6534 13.6251 15.2379 14.0406 15.2379 14.5531C15.2379 15.0656 15.6534 15.4811 16.166 15.4811H23.2056L13.8958 24.7909C13.5334 25.1533 13.5334 25.7409 13.8958 26.1033Z" fill="#1A1A1A" />
+                                <path fillRule="evenodd" clipRule="evenodd" d="M13.8958 26.1033C14.2582 26.4657 14.8458 26.4657 15.2082 26.1033L24.518 16.7935V23.8331C24.518 24.3457 24.9335
+                                 24.7612 25.446 24.7612C25.9585 24.7612 26.374 24.3457 26.374 23.8331V14.5531C26.374 14.0406 25.9585 13.6251 25.446 13.6251H16.166C15.6534 13.6251 15.2379 14.0406
+                                  15.2379 14.5531C15.2379 15.0656 15.6534 15.4811 16.166 15.4811H23.2056L13.8958 24.7909C13.5334 25.1533 13.5334 25.7409 13.8958 26.1033Z" fill="#1A1A1A" />
                             </svg>
                             <div>
                                 <p className="text-black text-l">

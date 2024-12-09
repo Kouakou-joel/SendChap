@@ -50,7 +50,7 @@ export default function CreateCompte() {
 
     return (
         <>
-            <main className="flex justify-center items-center bg-gray-100 min-h-screen font-inter">
+            <main className="flex justify-center items-center bg-gray-100 min-h-screen font-MerriweatherSans">
                 <div className="bg-white shadow-2xl p-6 rounded-lg w-96">
                     <div className="flex items-center">
                         <h3 className="mb-2 font-semibold text-xl">Création de compte</h3>

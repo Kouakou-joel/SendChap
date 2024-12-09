@@ -42,7 +42,7 @@ export default function DashboardLayout({
     trus,
 }: DashboardLayoutProps) {
     return (
-        <div id="app" className="flex bg-white h-screen font-inter">
+        <div id="app" className="flex bg-white h-screen font-WorkSans">
             <div style={{ width: "270px" }}>
                 <SideBar></SideBar>
             </div>
