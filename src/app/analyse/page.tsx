@@ -33,7 +33,7 @@ export default function Analyse() {
 
     };
     useEffect(() => {
-        // Premier graphique
+
         const chartDom1 = document.getElementById('main0');
         if (chartDom1) {
             const ridChart = echarts.init(chartDom1);
@@ -78,7 +78,6 @@ export default function Analyse() {
             ridChart.setOption(option);
         }
 
-        // Deuxième graphique
         const chartDom = document.getElementById('main5');
         if (chartDom) {
             const ridChart = echarts.init(chartDom);
@@ -123,88 +122,7 @@ export default function Analyse() {
             ridChart.setOption(option);
         }
 
-        // Troisième graphique
-        const chartDom2 = document.getElementById('main2');
-        if (chartDom2) {
-            const myChart = echarts.init(chartDom2);
-            const option = {
-                xAxis: {
-                    type: 'category',
-                    data: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    axisLine: {
-                        show: false // Rend le trait de l'axe x invisible
-                    },
-                    axisTick: {
-                        show: false // Supprime les graduations de l'axe x
-                    },
-                   
-                },
-                yAxis: {
-                    show: false,
-                    axisLine: {
-                        show: false // Supprime le trait de l'axe y
-                    },
-                    axisTick: {
-                        show: false // Supprime les graduations de l'axe y
-                    },
-                    axisLabel: {
-                        show: false // Supprime les étiquettes de l'axe y
-                    }
-                },
-                series: [{
-                    data: [120, 200, 150, 80, 70, 110, 130, 120, 100, 110, 120, 130],
-                    type: 'bar',
-                    barWidth: '40%', // Réduit l'épaisseur des éléments
-                    itemStyle: {
-                        color: '#8559C5',
-                        borderRadius: [8, 8, 0, 0], // Arrondi en haut à gauche et droite
-                        itemStyle: {
-                            borderRadius: [8, 8, 0, 0] // Applique l'arrondi à chaque barre
-                        }
-                    }
-                }]
-            };
-            myChart.setOption(option);
-        }
 
-        const chartDomw = document.getElementById('mainw');
-        if (chartDomw) {
-            const myChart = echarts.init(chartDomw);
-            const option = {
-                dataset: {
-                    source: [
-                        ['score', 'amount', 'product'],
-                        [89.3, 58212, '']
-                    ]
-                },
-                grid: { containLabel: true },
-                xAxis: { name: 'montant' },
-                yAxis: { type: 'category' },
-                visualMap: {
-                    orient: 'horizontal',
-                    min: 10,
-                    max: 100,
-                    text: ['', ''],
-                    dimension: 0,
-                    inRange: {
-                        color: ['#65B581', '#FFCE34', '#FD665F']
-                    }
-                },
-                series: [{
-                    type: 'bar',
-                    barWidth: '30%',
-                    borderRadius: [0, 0, 8, 0],
-                    itemStyle: {
-                        borderRadius: [0, 0, 8, 0] // Applique l'arrondi à chaque barre
-                    }, // Réduit l'épaisseur de la barre
-                    encode: {
-                        x: 'amount',
-                        y: 'product'
-                    }
-                }]
-            };
-            myChart.setOption(option);
-        }
     }, []);
     return (
         <>
@@ -259,7 +177,8 @@ export default function Analyse() {
                     </div>
                     <div className="flex mt-8">
                         <div className="w-1/2">
-                            <div className="relative bg-blue-gray-500 from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l">utilisateurs actifs</div>
@@ -292,7 +211,7 @@ export default function Analyse() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-2 text-l">
                                         <div className="text-black text-l">Taux de croissance des utilisateurs</div>
@@ -327,7 +246,7 @@ export default function Analyse() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-6 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l">Taux de retention</div>
@@ -354,14 +273,13 @@ export default function Analyse() {
                                             </span>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
-                                {/* <div id="mainw" className='w-full h-10' ></div> */}
                             </div>
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l"> Taux de parrainage</div>
@@ -396,7 +314,7 @@ export default function Analyse() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-4 text-l">
                                         <div className="text-black text-l">Taux de churn</div>
@@ -428,7 +346,7 @@ export default function Analyse() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-xl mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l">Segmentation des utilisateur</div>
@@ -466,7 +384,7 @@ export default function Analyse() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main0" className="w-40 h-40"></div>;
@@ -507,7 +425,7 @@ export default function Analyse() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex">
                                     <div className="w-1/3 h-96">
                                         <div id="main5" className="w-40 h-40"></div>
@@ -550,7 +468,7 @@ export default function Analyse() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de paiement en 24 heures / Paiement marchant</h3>
                                     <div className="ml-auto">
@@ -580,7 +498,7 @@ export default function Analyse() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-xl mx-4 -mt-4 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de depot en 24 heures / Depot bancaire</h3>
                                     <div className="ml-auto">
@@ -610,7 +528,7 @@ export default function Analyse() {
                         </div>
                     </div>
                     <div className="flex mt-8">
-                        <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl w-full h-40 overflow-hidden">
+                        <div className="relative shadow-sm mx-4 -mt-4 bg-clip-border rounded-xl w-full h-40 overflow-hidden">
                             <div className="flex space-x-10 pt-6 text- text-black">
                                 <div className="ml-4 w-1/3 h-screen">
                                     <h3 className="">Montant minimum par transaction</h3>
@@ -621,8 +539,7 @@ export default function Analyse() {
                                     <div className="pt-8"></div>
                                 </div>
                                 <div className="w-1/3 h-screen">
-                                    <div className="flex ml-80"
-                                    >
+                                    <div className="flex ml-80">
                                         <a href="">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M9.99992 3.25C10.5062 3.25 10.9166 3.66041 10.9166 4.16667C10.9166 4.67293 10.5062 5.08333 9.99992 5.08333C9.49366 5.08333 9.08325 4.67293 9.08325 4.16667C9.08325 3.66041 9.49366 3.25 9.99992 3.25Z" fill="#999999" stroke="#999999" />
@@ -646,9 +563,9 @@ export default function Analyse() {
                         Donnees d Engagement
                     </div>
                     <div className="mt-10">
-                        <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-xl mx-4 -mt-4 px-4 bg-clip-border border rounded-xl h-96 overflow-hidden">
-                            <div className="py-4 pl-4 text-black text-l">
-                                Donnees sur les utilisateurs
+                        <div className="relative shadow-sm mx-4 -mt-4 px-4 border rounded-xl h-96 overflow-hidden">
+                            <div className="py-4 pl-4 font-MerriweatherSans text-black text-l">
+                            Interactions par utilisateur
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="bg-white border min-w-full">
@@ -656,33 +573,24 @@ export default function Analyse() {
                                         <tr className="bg-gray-100 border-b font-medium text-gray-700 text-left text-sm">
 
                                             <th className="bg-white px-4 py-2">
-
-                                                <button> Toutes les interactions</button>
-                                            </th>
-
-                                            <th className="px-4 py-2">
-                                                <button>Tansfert d argent</button>
-                                            </th>
-                                            <th className="px-4 py-2">
-                                               <button>Achat de carte cardeaux</button>
+                                                
+                                                Toutes les interactions
                                                 </th>
+
+                                            <th className="px-4 py-2">Tansfert d argent</th>
+                                            <th className="px-4 py-2">Achat de carte cardeaux</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr className="">
-                                            <td colSpan={3}>
-                                                <div id="main2" className="w-full h-80"></div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
+                
             </DashboardLayout>
-        </>
-    );
-}  
+            </>
+                                );
+}
