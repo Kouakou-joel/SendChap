@@ -179,12 +179,12 @@ export default function Transactions() {
                         </nav>
                     </div>
                 </div>
-                <div className="mt-14">
-                    <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-lg mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
+                <div className="my-14">
+                    <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-screen text-white overflow-hidden">
                         <div className="overflow-x-auto">
                             <table className="bg-white border min-w-full">
                                 <thead>
-                                    <tr className="bg-gray-100 border-b font-medium text-gray-700 text-left text-sm b">
+                                    <tr className="bg-neutral-100 border-b font-medium text-gray-700 text-left text-sm">
                                         <th className="py-2 pl-6">
                                             <input id="selectAll" type="checkbox" className="cursor-pointer" />
                                         </th>

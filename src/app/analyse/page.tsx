@@ -66,9 +66,11 @@ export default function Analyse() {
                             show: false
                         },
                         data: [
-                            { value: 1048, name: '' },
-                            { value: 735, name: '' },
-                            { value: 580, name: '' },
+                            { value: 1048, name: '', itemStyle: { color: '#F58220' } },
+                            { value: 735, name: '', itemStyle: { color: '#005CA8' } },
+                            { value: 580, name: '', itemStyle: { color: '#FFC403' } },
+                            { value: 884, name: '', itemStyle: { color: '#1DC8FF' } },
+
 
                         ]
                     }
@@ -110,9 +112,11 @@ export default function Analyse() {
                             show: false
                         },
                         data: [
-                            { value: 1048, name: '' },
-                            { value: 735, name: '' },
-                            { value: 580, name: '' },
+                            { value: 1048, name: '', itemStyle: { color: '#F58220' } },
+                            { value: 735, name: '', itemStyle: { color: '#005CA8' } },
+                            { value: 580, name: '', itemStyle: { color: '#FFC403' } },
+                            { value: 884, name: '', itemStyle: { color: '#1DC8FF' } },
+
 
                         ]
                     }
@@ -246,7 +250,7 @@ export default function Analyse() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l">Taux de retention</div>
@@ -279,7 +283,7 @@ export default function Analyse() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-l">
                                         <div className="text-black text-l"> Taux de parrainage</div>
@@ -528,7 +532,7 @@ export default function Analyse() {
                         </div>
                     </div>
                     <div className="flex mt-8">
-                        <div className="relative shadow-sm mx-4 -mt-4 bg-clip-border rounded-xl w-full h-40 overflow-hidden">
+                        <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl w-full h-40 overflow-hidden">
                             <div className="flex space-x-10 pt-6 text- text-black">
                                 <div className="ml-4 w-1/3 h-screen">
                                     <h3 className="">Montant minimum par transaction</h3>
@@ -565,7 +569,7 @@ export default function Analyse() {
                     <div className="mt-10">
                         <div className="relative shadow-sm mx-4 -mt-4 px-4 border rounded-xl h-96 overflow-hidden">
                             <div className="py-4 pl-4 font-MerriweatherSans text-black text-l">
-                            Interactions par utilisateur
+                          <h2 className="font-semibold">  Interactions par utilisateur</h2>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="bg-white border min-w-full">

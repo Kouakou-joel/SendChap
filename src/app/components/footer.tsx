@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <footer className="" >
-        <div className="flex space-x-1 pt-28 overflow-hidden">
+        <div className="flex space-x-1 pt-16 overflow-hidden">
           <div className="flex">
             <div className="bg-gray-300 p-2 rounded-full w-12 h-12 text-center">
               <BsPerson className="w-8 h-8" />

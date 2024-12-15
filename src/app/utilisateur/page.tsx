@@ -94,11 +94,11 @@ export default function Utilisateur() {
 
     return (
         <>
-            <DashboardLayout util={"Getion des utilisateur"} utis={"Suivez,gerez,Prevoyez les actions des uttilisateurs"}>
+            <DashboardLayout util={"Gestion des utilisateurs"} utis={"Suivez,gerez,Prevoyez les actions des uttilisateurs"}>
                 <div className="pt-8">
                     <div className="flex">
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
                                         <div className="text-black text-xl">Total des utilisateurs</div>
@@ -130,7 +130,7 @@ export default function Utilisateur() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
                                         <div className="text-black text-xl">utilisateurs Actifs</div>
@@ -165,7 +165,7 @@ export default function Utilisateur() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
 
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6 text-xl">
@@ -199,7 +199,7 @@ export default function Utilisateur() {
                         </div>
                     </div>
                     <div className="flex justify-between items-center px-4 pt-4 font-inter">
-                        <div className="flex items-center shadow-md mb-4 p-1 border rounded-l outline-none">
+                        <div className="flex items-center shadow-sm mb-4 p-1 border rounded-xl outline-none">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16 4V13H18.25L15.25 16.75L12.25 13H14.5V4H16ZM10 14.5V16H3.25V14.5H10ZM11.5 9.25V10.75H3.25V9.25H11.5ZM11.5 4V5.5H3.25V4H11.5Z" fill="#666666" />
                             </svg>
@@ -211,7 +211,7 @@ export default function Utilisateur() {
                             </select>
                         </div>
 
-                        <div className="flex items-center bg-white shadow-blue-gray-500/40 shadow-md px-2 border rounded-xl">
+                        <div className="flex items-center bg-white shadow-sm px-2 border rounded-xl">
                             <CiSearch className='w-6 h-10' />
                             <input
                                 type="text"
@@ -224,11 +224,11 @@ export default function Utilisateur() {
                     </div>
                     <div className="pt-10">
                         <div className="w-full h-screen">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-fit text-white overflow-hidden">
                                 <div className="overflow-x-auto">
                                     <table className="bg-white border min-w-full">
                                         <thead>
-                                            <tr className="bg-gray-100 font-medium text-gray-700 text-left text-sm">
+                                            <tr className="bg-neutral-100 font-medium text-gray-700 text-left text-sm">
                                                 <th className="py-2 pl-6">
                                                     <input id="selectAll" type="checkbox" className="cursor-pointer" />
                                                 </th>
@@ -246,15 +246,7 @@ export default function Utilisateur() {
                                                 </td>
                                                 <td className="flex py-2">
                                                     <div className="flex">
-                                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                                                            <g clipPath="url(#clip0_11814_23380)">
-                                                                <g clipPath="url(#clip1_11814_23380)">
-                                                                    <rect width="40" height="40" fill="#80CBC4" />
-                                                                    <rect x="1.01562" y="1.99219" width="38.0078" height="38.0078" fill="url(#pattern0_11814_23380)" />
-                                                                </g>
-                                                            </g>
-
-                                                        </svg>
+                                                        
                                                     </div>
                                                     <h3 className='flex items-center pl-2'>Jean Philipp</h3>
                                                 </td>
@@ -307,10 +299,10 @@ export default function Utilisateur() {
                                                     key={index}
                                                     onClick={() => typeof page === 'number' ? handlePageChange(page) : null}
                                                     className={`px-2 py-1 rounded-md ${page === currentPage
-                                                        ? 'bg-gray-500 text-white'
+                                                        ? 'bg-neutral-400 text-white'
                                                         : page === '...'
-                                                            ? 'text-gray-400 bg-transparent cursor-default'
-                                                            : 'bg-gray-200 hover:bg-gray-300 text-gray-600'
+                                                            ? 'text-neutral-400 bg-transparent cursor-default'
+                                                            : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-400'
                                                         }`}
                                                     disabled={page === '...'}
                                                 >

@@ -9,19 +9,21 @@ type DashboardLayoutProps = {
     children: React.ReactNode;
     title?: string;
     texte?: string;
-    navbar: any;
-    commit: any;
+    navbar?: any;
+    commit?: any;
     util?: string;
     utis?: string;
     utilityInfo?: string;
-    toggleInfo: string;
-    additInfo: string;
-    gestionbBug: string;
-    suptitle:string;
-    parraintitle: string;
-    part: string;
-    head: string;
-    trus: string;
+    toggleInfo?: string;
+    additInfo?: string;
+    gestionbBug?: string;
+    suptitle?:string;
+    parraintitle?: string;
+    part?: string;
+    head?: string;
+    trus?: string;
+    transt?: string;
+    commites?: string;
 };
 export default function DashboardLayout({
     children,
@@ -40,6 +42,8 @@ export default function DashboardLayout({
     part,
     head,
     trus,
+    transt,
+    commites,
 }: DashboardLayoutProps) {
     return (
         <div id="app" className="flex bg-white h-screen font-WorkSans">
@@ -58,6 +62,7 @@ export default function DashboardLayout({
                              {gestionbBug}
                              {parraintitle}
                              {head}
+                             {transt}
                         </h2>
                         <p className='text-gray-500'>
                             {texte}
@@ -67,6 +72,7 @@ export default function DashboardLayout({
                             {suptitle}
                             {part}
                             {trus}
+                            {commites}
                         </p>
                     </div>
 

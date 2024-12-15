@@ -9,12 +9,12 @@ export default function SideBar() {
     return (
         <>
 
-            <aside className="top-0 z-50 fixed border-gray-200 bg-white border-r w-64 h-screen">
+            <aside className="top-0 z-50 fixed border-gray-200 bg-white border-r w-64 h-screen font-WorkSans">
                 <div className="flex items-center p-4">
                     <a href="/dashboard">
-                    <Image
-                        src="/assets/images/app icons.svg" className="w-10 h-10" alt="Your Company" width={50} height={50}
-                    />
+                        <Image
+                            src="/assets/images/app icons.svg" className="w-10 h-10" alt="Your Company" width={50} height={50}
+                        />
                     </a>
                     <div className='ms-3'>
                         <h3 className='pb-0'>Send chap</h3>
@@ -48,6 +48,18 @@ export default function SideBar() {
                                 Gestion des utilisateurs
                             </Link>
                         </li>
+                        <li>
+                            <Link href="/transactionRecent" className={`flex items-center ${pathname === "/utilisateur" ? 'font-bold' : ''} hover:bg-gray-100 p-2 rounded-md text-gray-700`}>
+
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="20" cy="20" r="20" fill="#EEEEEC" />
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M13.8958 26.1033C14.2582 26.4657 14.8458 26.4657 15.2082 26.1033L24.518 16.7935V23.8331C24.518 24.3457 24.9335 24.7612 25.446 24.7612C25.9585 24.7612 26.374 24.3457 26.374 23.8331V14.5531C26.374 14.0406 25.9585 13.6251 25.446 13.6251H16.166C15.6534 13.6251 15.2379 14.0406 15.2379 14.5531C15.2379 15.0656 15.6534 15.4811 16.166 15.4811H23.2056L13.8958 24.7909C13.5334 25.1533 13.5334 25.7409 13.8958 26.1033Z" fill="#a855f7" />
+                                </svg>
+                                
+                                Transactions recents
+                            </Link>
+                        </li>
+
                         <li>
                             <Link href="/carte-cadeau" className={`flex items-center ${pathname === "/carte-cadeau" ? 'font-bold' : ''} hover:bg-gray-100 p-2 rounded-md text-gray-700`}>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-2'>

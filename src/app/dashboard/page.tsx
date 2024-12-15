@@ -175,7 +175,10 @@ export default function Dashboard() {
                         },
                         labelLine: { show: false },
                         data: [
+                            { value: 1048, name: '', itemStyle: { color: '#F58220' } },
                             { value: 1048, name: '', itemStyle: { color: '#005CA8' } },
+                            { value: 1048, name: '', itemStyle: { color: '#FFC403' } },
+                            { value: 1048, name: '', itemStyle: { color: '#1DC8FF' } },
 
                         ],
                     },
@@ -362,8 +365,8 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
-                                <div className="flex">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-80 text-white overflow-hidden">
+                                <div className="flex h-1/2">
                                     <div className="w-1/3 h-96">
                                         <div id="main" className="w-40 h-40"></div>;
                                     </div>
@@ -400,12 +403,33 @@ export default function Dashboard() {
                                     </div>
 
                                 </div>
+                                <div className="mx-6 h-1/2 font-WorkSans text-black">
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Group 21604.png" alt="logo Orange" className="w-6 h-6" />
+                                        
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo moov" className="w-6 h-6"/>
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo mtn" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Rectangle 8.png" alt="logo vawe" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
-                                <div className="flex">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-80 text-white overflow-hidden">
+                                <div className="flex h-1/2">
                                     <div className="w-1/3 h-96">
                                         <div id="main1" className="w-40 h-40"></div>;
                                     </div>
@@ -441,14 +465,35 @@ export default function Dashboard() {
                                     </div>
 
                                 </div>
+                                <div className="mx-6 h-1/2 font-WorkSans text-black">
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Group 21604.png" alt="logo Orange" className="w-6 h-6" />
+                                        
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo moov" className="w-6 h-6"/>
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo mtn" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Rectangle 8.png" alt="logo vawe" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="flex mt-8 font-MerriweatherSans">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
-                                <div className="flex">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-80 text-white overflow-hidden">
+                                <div className="flex h-1/2">
                                     <div className="w-1/3 h-96">
                                         <div id="main2" className="w-40 h-40"></div>;
                                     </div>
@@ -484,12 +529,33 @@ export default function Dashboard() {
                                     </div>
 
                                 </div>
+                                <div className="mx-6 h-1/2 font-WorkSans text-black">
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Group 21604.png" alt="logo Orange" className="w-6 h-6" />
+                                        
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo moov" className="w-6 h-6"/>
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo mtn" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Rectangle 8.png" alt="logo vawe" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
-                                <div className="flex">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-80 text-white overflow-hidden">
+                                <div className="flex h-1/2">
                                     <div className="w-1/3 h-96">
                                         <div id="main3" className="w-40 h-40"></div>;
                                     </div>
@@ -525,13 +591,34 @@ export default function Dashboard() {
                                     </div>
 
                                 </div>
+                                <div className="mx-6 h-1/2 font-WorkSans text-black">
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Group 21604.png" alt="logo Orange" className="w-6 h-6" />
+                                        
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo moov" className="w-6 h-6"/>
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Réseau.png" alt="logo mtn" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                    <div className="flex justify-between items-center px-4 py-2">
+                                        <img src="/assets/images/Rectangle 8.png" alt="logo vawe" className="w-6 h-6" />
+                                        <h3></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre d'envoie en 24 heures/ Envoie d argent</h3>
                                     <div className="ml-auto">
@@ -562,7 +649,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre d'achat en 24 heures / Carte cadeau</h3>
                                     <div className="ml-auto">
@@ -594,7 +681,7 @@ export default function Dashboard() {
                     <div className="flex mt-8">
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de paiement en 24 heures / Paiement marchant</h3>
                                     <div className="ml-auto">
@@ -624,7 +711,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/2">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="flex ml-4 pt-6">
                                     <h3 className="text-l text-slate-400">Nombre de depot en 24 heures / Depot bancaire</h3>
                                     <div className="ml-auto">
@@ -653,10 +740,10 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex mt-8">
+                    <div className="flex my-8">
                         <div className="w-2/3">
 
-                            <div className="relative bg-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-screen text-white overflow-hidden">
                                 <header className="items-center px-6 w-full h-10">
                                     <div className="flex pt-4">
                                         <div className="text-black text-xl">Status des Tansactions</div>
@@ -685,7 +772,7 @@ export default function Dashboard() {
                         </div>
                         <div className="w-1/3">
 
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-4 bg-clip-border border rounded-xl h-screen text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-4 border rounded-xl h-screen text-white overflow-hidden">
                                 <Transaction />
                             </div>
                         </div>
@@ -696,5 +783,13 @@ export default function Dashboard() {
         </>
     );
 } 
+                
+               
+
+                
+               
+
+                
+                
                 
                

@@ -58,7 +58,7 @@ export default function Parrainage() {
                 <div className="pt-8">
                     <div className="flex">
                         <div className="w-1/3">
-                            <div className="relative shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
                                         <div className="text-black text-xl">Total des parrains</div>
@@ -90,7 +90,7 @@ export default function Parrainage() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
                                         <div className="text-black text-xl">Total des filleuls</div>
@@ -125,7 +125,7 @@ export default function Parrainage() {
                             </div>
                         </div>
                         <div className="w-1/3">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-40 text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-40 text-white overflow-hidden">
 
                                 <div className="mb-4 px-2 text-black">
                                     <div className="flex mt-6">
@@ -184,7 +184,7 @@ export default function Parrainage() {
                     </div>
                     <div className="pt-10">
                         <div className="w-full h-screen">
-                            <div className="relative bg-blue-gray-500 bg-gradient-to-r from-white to-white shadow-blue-gray-500/40 shadow-md mx-4 -mt-6 bg-clip-border border rounded-xl h-fit text-white overflow-hidden">
+                            <div className="relative shadow-sm mx-4 -mt-6 border rounded-xl h-fit text-white overflow-hidden">
                                 <div className="overflow-x-auto">
                                     <table className="bg-white border min-w-full">
                                         <thead>
